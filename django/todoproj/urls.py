@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from todoapi.views import TaskList
+from todoapi.views import TaskList, TaskDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/task/', TaskList.as_view(), name='task-list'),
-
+    path('api/task/<int:task_id>/', TaskDetail.as_view(), name='task-detail'),
 ]
